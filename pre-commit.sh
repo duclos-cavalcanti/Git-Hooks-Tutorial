@@ -2,6 +2,7 @@
 
 if git rev-parse --verify HEAD >/dev/null 2>&1
 then
+	# New committs
 	echo "pre-commit: About to create a new commit!"
 	against=HEAD
 else
