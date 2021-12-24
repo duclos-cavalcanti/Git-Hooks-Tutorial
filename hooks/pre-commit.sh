@@ -41,6 +41,7 @@ fi
 
 ## Apply formatting to files
 if command -v clang-format >/dev/null 2>&1; then
+	echo "pre-commit: Formatting c file :)"
 	# style=mozilla
 	style=google
 	for f in $(ls *.c); do
