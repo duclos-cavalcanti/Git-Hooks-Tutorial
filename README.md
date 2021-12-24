@@ -1,4 +1,4 @@
-# Git-Hooks-Tutorial
+# Git-Hooks
 A small repo to exemplify what one could do with `git hooks`. Also gives a minor
 explanation to what specific hooks do, when they are activated and how they could
 be used. Based on [this](https://www.atlassian.com/git/tutorials/git-hooks).
