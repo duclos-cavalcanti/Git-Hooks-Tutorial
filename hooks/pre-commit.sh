@@ -17,6 +17,7 @@ allownonascii=$(git config --type=bool hooks.allownonascii)
 # Redirect output to stderr.
 exec 1>&2
 
+## Check for NON-ASCII named Files
 if [ "$allownonascii" != "true" ] &&
 	 test $(git diff --cached --name-only --diff-filter=A -z $against |
 	 LC_ALL=C tr -d '[ -~]\0' | wc -c) != 0
@@ -28,6 +29,7 @@ else
   exit 0
 fi
 
+## Check for Whitespace Errors Files!
 if ! git diff-index --check --cached $against
 then
   echo "pre-commit: Aborting commit due to whitespace errors!"
@@ -35,4 +37,13 @@ then
 else
   echo "pre-commit: No whitespace errors :)"
   exit 0
+fi
+
+## Apply formatting to files
+if command -v clang-format >/dev/null 2>&1; then
+	# style=mozilla
+	style=google
+	for f in $(ls *.c); do
+		clang-format -style=${style} -i $f
+	done
 fi
