@@ -23,6 +23,9 @@ if [ "$allownonascii" != "true" ] &&
 then
   echo "pre-comit: Attempt to add a non-ASCII file name!"
 	exit 1
+else
+  echo "pre-commit: No non-ASCII file names :)"
+  exit 0
 fi
 
 if ! git diff-index --check --cached $against
