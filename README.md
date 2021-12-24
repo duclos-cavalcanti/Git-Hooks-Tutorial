@@ -21,4 +21,3 @@ Hooks reside in `.git/hooks` of every git repository.
 These represent most of the available hooks, but the `.sample` extension prevent them from
 executing. By removing this ending or adding a script with the same name will enable said
 hook.
-
