@@ -3,6 +3,9 @@ A small repo to exemplify what one could do with `git hooks`. Also gives a minor
 explanation to what specific hooks do, when they are activated and how they could
 be used. Based on [this](https://www.atlassian.com/git/tutorials/git-hooks).
 
+The `config.sh` script will symlink the hooks to this repo locally. Take a look at the
+script and modify it accordingly.
+
 ## Introduction
 
 By default hooks reside in `.git/hooks` of every git repository.
