@@ -6,6 +6,9 @@ be used. Based on [this](https://www.atlassian.com/git/tutorials/git-hooks).
 The `config.sh` script will symlink the hooks to this repo locally. Take a look at the
 script and modify it accordingly.
 
+There is also a mock `.c` file that shows how `clang-format` could be integrated with git
+hooks to include automatic formatting to projects.
+
 ## Introduction
 
 By default hooks reside in `.git/hooks` of every git repository.
