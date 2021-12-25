@@ -26,7 +26,6 @@ then
 	exit 1
 else
   echo "pre-commit: No non-ASCII file names :)"
-  exit 0
 fi
 
 ## Check for Whitespace Errors Files!
@@ -36,15 +35,17 @@ then
   exit 1
 else
   echo "pre-commit: No whitespace errors :)"
-  exit 0
 fi
 
 ## Apply formatting to files
-if command -v clang-format >/dev/null 2>&1; then
+if ! command -v clang-format >/dev/null 2>&1; then
+	echo "pre-commit: No clang-format found!"
+	exit 1
+else
 	echo "pre-commit: Formatting c file :)"
-	# style=mozilla
-	style=google
 	for f in $(ls *.c); do
-		clang-format -style=${style} -i $f
+		clang-format -i $f
+		git add $f
 	done
+	exit 0
 fi

@@ -9,6 +9,6 @@ for f in ${hooks[@]}; do
   if [ -f hooks/${f} ]; then
     nf="${f::-3}"
     echo "HOOK: ${nf}"
-    ln -v -s -f ./hooks/${f} .git/hooks/${nf}
+    ln -v -f ./hooks/${f} .git/hooks/${nf}
   fi
 done
